@@ -1,0 +1,84 @@
+package Supermarket;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Order {
+
+    private String id;
+    private String customerName;
+    private Integer birthYear;
+    private Address address;
+    private List<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
+
+    public Order() {
+    }
+
+    public Order(String id, String customerName, Integer birthYear, Address address) {
+        this.id = id;
+        this.customerName = customerName;
+        this.birthYear = birthYear;
+        this.address = address;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public Integer getBirthYear() {
+        return birthYear;
+    }
+
+    public void setBirthYear(Integer birthYear) {
+        this.birthYear = birthYear;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" + "id=" + id + ", customerName=" + customerName + ", birthYear=" + birthYear + ", address=" + address + '}';
+    }
+
+    public List<OrderDetail> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
+    // Sap xep tang dan so tien ma khach hang da mua.
+    public void sortByPrice() {
+
+        Collections.sort(this.orderDetails, (OrderDetail od1, OrderDetail od2) -> {
+            if (od1.getPrice() > od2.getPrice()) {
+                return 1;
+            } else if (od1.getPrice() < od2.getPrice()) {
+                return -1;
+            } else {
+                return 0;
+            }
+        });
+    }
+
+}
