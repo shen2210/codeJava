@@ -1,0 +1,62 @@
+A.           Tạo Class Student .                                                             
+
+a.    Có trường thuộc tính: String rollNo.
+
+b.    Xây dựng các phương thức get/set cho thuộc tính và hàm tạo có tham số để truyền giá trị cho thuộc tính trên
+
+B.           Tạo ứng dụng đa luồng sử dụng cơ chế wait–notify làm công việc sau:
+
+-      Thread1 :                                                                          
+
++   Sử dụng BufferedReader để mở file “students.txt”  
+
++  File “students.txt” lưu trữ roll number của các sinh viên, mỗi roll trên 1 dòng.
+
++  Roll number hợp lệ có mẫu như sau:
+
+·         ATxxyxxxx
+
+·         Trong đó
+
+x là số từ 0 đến 9
+y là kí tự từ A đến Z
+
+·         Ví dụ:
+
+o   AT17N0112 là hợp lệ
+
+o   cd18N1201 là không hợp lệ
+
+§  Một roll hợp lệ được dùng để tạo ra 1 đối tượng sinh viên và sau đó được add vào 1 collection tên là validRollNumber sử dụng generic là kiểu Student. Sau đó chuyển công việc qua Thread2.                       
+
+§  Một roll không hợp lệ được add liên tiếp vào 1 collection tên là unvalidRollNumber có kiểu generic là String. Sau đó chuyển công việc qua Thread3.                                      
+
+§  validRollNumber và unvalidRollNumber collection được khai báo trong Class SharedData được sử dụng trong ứng dụng đa luồng cho phép có thể thao tác đồng thời trên dữ liệu của chúng.
+
+-      Thread2 :
+
+Ngay lập tức sau khi có 1 sinh viên được add vào collection validRollNumber.
+
+o   Thread2 lấy thông tin sinh viên vừa được add vào collection ra để hiển thị và có 1 dòng thông báo liền kề sau đó là độ dài hiện tại của collection validRollNumber.
+
+§  Ví dụ :                                                  
+
+·         "Welcome student has roll number is :…"
+
+·         “Valid collection has length :…”
+
+o   Đồng thời Thread2 ghi đối tượng sinh viên này xuống file xxx.dat       
+
+§  Trong đó: xxx là roll number của sinh viên.
+
+·         Ví dụ: AT17N0112.dat
+ 
+-      Thread3:
+
+Ngay sau khi 1 roll number không hợp lệ được add vào collection unvalidRollNumber  .
+
+o   Thread3 lấy nó ra và hiển thị dưới dạng:
+
+§  "Unvalid roll number :…" 
+
+o    Đồng thời ghi xuống file unvalid.txt , file unvalid.txt có nhiều dòng, mỗi dòng ghi một roll number không hợp lệ
