@@ -6,7 +6,7 @@ package StudentThread;
 
 /**
  *
- * @author LENOVO
+ * @author Le Lien
  */
 public class Main {
     public static void main(String[] args) {
