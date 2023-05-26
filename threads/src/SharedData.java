@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author LENOVO
+ * @author Le Lien
  */
 public class SharedData {
 
