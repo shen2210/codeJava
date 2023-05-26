@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author LENOVO
+ * @author Le Lien
  */
 public class Thread2 extends Thread {
 
