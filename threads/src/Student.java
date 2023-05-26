@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author LENOVO
+ * @author Le Lien
  */
 public class Student implements Serializable {
     String rollNo;
